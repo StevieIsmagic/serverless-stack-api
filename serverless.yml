@@ -49,4 +49,4 @@ functions:
     events:
       - http:
           path: notes
-          method: post
+          method: post 
