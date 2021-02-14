@@ -17,7 +17,7 @@ export async function main(event, context) {
             noteId: uuid.v1(), // a unique uuid
             content: data.content, // parsed from request body
             attachment: data.attachment, // parsed from request body
-            createdAt: Date.now() // Current Unix timestamp
+            createdAt: Date.now(), // Current Unix timestamp
         },
     };
 
@@ -26,12 +26,12 @@ export async function main(event, context) {
 
         return {
             statusCode: 200,
-            body: JSON.stringify(params.Item)
+            body: JSON.stringify(params.Item),
         };
     } catch (e) {
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: e.message }),
+            body: JSON.stringify({ error: e }),
         };
     }
 }
