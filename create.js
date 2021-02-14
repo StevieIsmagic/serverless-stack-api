@@ -10,7 +10,7 @@ export async function main(event, context) {
 
     const params = {
 
-        TableName: process.env.TableName,
+        TableName: process.env.tableName,
         Item: {
             // the attributes of the item to be created
             userId: "123", // the id of the author (later set this to the id of the authenticated user)
