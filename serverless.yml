@@ -62,8 +62,8 @@ functions:
     handler: list.main
     events:
       - http:
-        path: notes
-        method: get
+          path: notes
+          method: get
   update: 
     # defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is notes/{id}
@@ -71,8 +71,8 @@ functions:
     handler: update.main
     events:
       - http:
-        path: notes/{id}
-        method: put
+          path: notes/{id}
+          method: put
   delete: 
     # defines an HTTP endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
