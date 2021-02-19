@@ -40,46 +40,56 @@ functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /notes
   # - method: POST request
+  # - authorizer: authenticates using the AWS IAM role
   # That is, the create.js Lambda handles post requests at the /notes endoint
     handler: create.main
     events:
       - http:
           path: notes
-          method: post 
+          method: post
+          authorizer: aws_iam
   get:
     # defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /notes/{id}
     # - method: GET request
+    # - authorizer: authenticates using the AWS IAM role
     handler: get.main
     events:
       - http:
           path: notes/{id}
           method: get
+          authorizer: aws_iam
   list:
     # defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
     # - method: GET request
+    # - authorizer: authenticates using the AWS IAM role
     handler: list.main
     events:
       - http:
           path: notes
           method: get
+          authorizer: aws_iam
   update: 
     # defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is notes/{id}
     # - method: PUT request
+    # - authorizer: authenticates using the AWS IAM role
     handler: update.main
     events:
       - http:
           path: notes/{id}
           method: put
+          authorizer: aws_iam
   delete: 
     # defines an HTTP endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
     # - method: DELETE request
+    # - authorizer: authenticates using the AWS IAM role
     # this adds a DELETE request handler to the /notes/{id} endpoint
     handler: delete.main
     events:
       - http:
           path: notes/{id}
           method: delete
+          authorizer: aws_iam
