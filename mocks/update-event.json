@@ -1,6 +1,11 @@
 {
-    "body": "{\"content\":\"new world\",\"attachment\":\"new.jpg\"}",
-    "pathParameters": {
-      "id": "578eb840-f70f-11e6-9d1a-1359b3b22944"
+  "body": "{\"content\":\"new stevie world\",\"attachment\":\"new.jpg\"}",
+  "pathParameters": {
+    "id": "cbb1d320-72e8-11eb-84ca-2307672569bd"
+  },
+  "requestContext": {
+    "identity": {
+        "cognitoIdentityId": "TEST-USER-123"
     }
   }
+}
