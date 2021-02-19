@@ -7,7 +7,7 @@ export const main = handler(async (event, context) => {
         TableName: process.env.tableName,
         // Key defines the partition key and sort key of the item to be updated
         Key: {
-            userId: "123", // the id of the author
+            userId: event.requestContext.identity.cognitoIdentityId, // the id of the author
             noteId: event.pathParameters.id, // The id of the note from the path
         },
         // UpdateExpression defines the atttributes to be updated
