@@ -15,7 +15,7 @@ export const main = handler(async (event, context) => {
 
   // create a new stripe object and charge the user
   await stripe.charges.create({
-    source, 
+    source,
     amount,
     description,
     currency: "usd",
