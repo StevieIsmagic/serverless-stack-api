@@ -1,3 +1,13 @@
+# Authentication using IAM / Identity Pool
+
+- A request wiith some signed authentication headers will be sent to our API
+- AWS will use the headers to figure out which Identity Pool is tied to it
+- The Identity Pool will ensure that the request is signed by somebody that has authenticated with our User Pool
+- If so, then it'll assign the Auth IAM Role to this request
+- Finally, IAM will check to ensure that this role has access to our API
+
+---
+
 # Serverless Node.js Starter
 
 A Serverless starter that adds ES6, TypeScript, serverless-offline, linting, environment variables, and unit test support. Part of the [Serverless Stack](http://serverless-stack.com) guide.
