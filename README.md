@@ -25,7 +25,7 @@ If the above is not set up, you'll experience the common HTTP response error:
 ```bash 
 No 'Access-Control-Allow-Origin' header is present on the requested resource 
 ```
-
+(CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain.
 ---
 # Serverless Node.js Starter
 
