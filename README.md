@@ -2,7 +2,7 @@
 
 - A request wiith some signed authentication headers will be sent to our API
 - AWS will use the headers to figure out which Identity Pool is tied to it
-- The Identity Pool will ensure that the request is signed by somebody that has authenticated with our User Pool
+- The Identity Pool will ensure that the request is signed by somebody that has authenticated with our User Pool - [Federated Identity Management](https://en.wikipedia.org/wiki/Federated_identity)
 - If so, then it'll assign the Auth IAM Role to this request
 - Finally, IAM will check to ensure that this role has access to our API
 
@@ -11,6 +11,20 @@
 - First authenticate against our User Pool and acquire a user token
 - With the user token get temporary IAM credentials from our Identity Pool
 - Use the IAM credentials to sign our API request with [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
+
+---
+# Understanding CORS
+
+There are two things weneed to do to support CORS in our Serverless API:
+
+- Preflight OPTIONS request: For certain types of cross-domain requests (PUT, DELETE, ones with Authentication headers, etc.) your browser will first make a preflight request using the request method OPTIONS. These need to respond with the domains that are allowed to access this API and the HTTP methods that are allowed.
+
+- Respond with CORS headers: For all other types of requests we need to make sure to include the appropriate CORS headers. These headers, just like the one above, need to include the domains that are allowed.
+
+If the above is not set up, you'll experience the common HTTP response error: 
+```bash 
+No 'Access-Control-Allow-Origin' header is present on the requested resource 
+```
 
 ---
 # Serverless Node.js Starter
